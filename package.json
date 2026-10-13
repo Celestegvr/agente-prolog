@@ -1,0 +1,11 @@
+{
+  "name": "agente-prolog",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Aplicación web con agente de IA intérprete de código Prolog (Tarea Unidad III).",
+  "type": "module",
+  "author": "María Celeste Guevara",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.133.0"
+  }
+}

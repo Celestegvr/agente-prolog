@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agente Prolog</title>
+  <meta name="description" content="Agente de IA intérprete de código Prolog: pega tu programa y la consulta, y obtén la respuesta con una explicación paso a paso.">
+  <meta name="theme-color" content="#14213d">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2314213d'/%3E%3Ctext x='16' y='22' font-family='monospace' font-size='15' font-weight='700' fill='%23f2c14e' text-anchor='middle'%3E%3F-%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilos.css?v=2">
+</head>
+<body>
+  <header class="cabecera">
+    <div class="marca"><span class="logo">?-</span><div><b>Agente Prolog</b><small>Unidad III · Programación Lógica</small></div></div>
+    <div class="cabecera-der">
+      <span class="estado-ia" id="estadoIA"></span>
+      <button class="icono" id="btnTema" aria-label="Cambiar tema claro u oscuro">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main class="contenedor">
+    <section class="intro">
+      <h1>Pega tu código Prolog y la consulta.<br><span>El agente te dice qué responde y por qué.</span></h1>
+      <p>Escribe los hechos y reglas, y al final las consultas que empiezan con <code>?-</code>. El agente ejecuta el programa con un intérprete de Prolog real y explica la resolución paso a paso: unificación, retroceso, aritmética, listas, negación, disyunción y corte.</p>
+    </section>
+
+    <section class="ejemplos-caja">
+      <span class="etiqueta-sec">Ejemplos por tema</span>
+      <div class="ejemplos" id="ejemplos"></div>
+    </section>
+
+    <div class="trabajo">
+      <section class="panel-editor">
+        <div class="editor-cabecera">
+          <span><b>Código Prolog</b> y consulta</span>
+          <button class="btn-link" id="btnLimpiar">Limpiar</button>
+        </div>
+        <div class="editor">
+          <pre class="numeros" id="numeros" aria-hidden="true">1</pre>
+          <textarea id="codigo" spellcheck="false" autocomplete="off" autocapitalize="off" aria-label="Código Prolog y consulta"></textarea>
+        </div>
+        <button class="btn btn-principal" id="btnEnviar">Enviar al agente <kbd>Ctrl</kbd><kbd>Enter</kbd></button>
+        <p class="ayuda">Cada cláusula termina en punto. Las variables empiezan con mayúscula o <code>_</code>. Puedes escribir varias consultas <code>?-</code>.</p>
+      </section>
+
+      <section class="panel-resultado" id="resultado" aria-live="polite">
+        <div class="vacio">
+          <span class="logo grande">?-</span>
+          <p>Aquí aparecerá <b>“Esta es la respuesta”</b> con el resultado y su explicación.</p>
+          <p class="nota">Prueba con el ejemplo cargado o elige uno de arriba.</p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="pie">
+    <p>Tarea Unidad III · Aplicación web con agente de IA intérprete de código Prolog · María Celeste Guevara</p>
+    <p class="nota">Intérprete: <a href="http://tau-prolog.org" target="_blank" rel="noopener">Tau Prolog</a> (BSD-3). Algunas diferencias menores con SWI-Prolog son posibles, por ejemplo en las cadenas.</p>
+  </footer>
+
+  <script src="js/tau/core.js"></script>
+  <script src="js/tau/lists.js"></script>
+  <script src="js/tau/charsio.js"></script>
+  <script src="js/tau/format.js"></script>
+  <script src="js/motor.js?v=2"></script>
+  <script src="js/explicador.js?v=2"></script>
+  <script src="js/ejemplos.js?v=2"></script>
+  <script src="js/app.js?v=2"></script>
+</body>
+</html>
